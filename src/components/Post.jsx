@@ -13,7 +13,7 @@ function Post({ data }) {
     const fireImpression = () => {
       const impressionURL = `https://www.tedooo.com/?userId=${data.userId}&itemId=${data.id}`;
       console.log(
-        "The application will fire an impression on every feed item that the user watches"
+        `The application will fire an impression on every feed item that the user watches - URL- ${impressionURL}`
       );
     };
 

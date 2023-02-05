@@ -7,17 +7,19 @@ function Posts() {
   const [offset, setOffset] = useState(6);
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await fetch("https://dev.tedooo.com/feed.json");
-      const responseData = await response.json();
-      setPostData(responseData.data);
-    };
+    if (postData.length === 0) {
+      const fetchPosts = async () => {
+        const response = await fetch("https://dev.tedooo.com/feed.json");
+        const responseData = await response.json();
+        setPostData(responseData.data);
+      };
+      fetchPosts();
+    }
 
     const fillDisplay = () => {
       setDisplayData(postData.slice(0, offset));
     };
 
-    fetchPosts();
     fillDisplay();
   }, [postData, offset]);
 
